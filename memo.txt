@@ -1,0 +1,41 @@
+## 機能
+- サンプルのコピー
+- コードの貼り付け、提出
+
+### サンプルのコピー
+#### コピーについて
+- サンプルのテキストのIDの名前は、"pre-sample{id}"となっている
+- 入力と出力のIDともに同じ"pre-sample"となっている
+- 入力のみでは、"pre-sample0", "pre-sample2", "pre-sample4", .., "pre-sample{2(n-1)}" というようになる
+- 問題ページのcontest.jsのbtn-copyの実装と同じことをすればコピーできる
+```
+$('.btn-copy').click(function() {
+    window.getSelection().removeAllRanges();
+    try {
+      var range = document.createRange();
+      range.selectNode($('#'+$(this).data('target')).get(0));
+      console.log(range);
+      window.getSelection().addRange(range);
+      console.log(window.getSelection());
+      document.execCommand('copy');
+      $(this).tooltip('show');
+      var _this = this;
+      setTimeout(function(){$(_this).tooltip('hide');}, 800);
+    } catch (err) {
+      console.log(err);
+    }
+    window.getSelection().removeAllRanges();
+  });
+```
+- range.selectNode()の引数は、$('pre-sample{id}).get(0) とすればいい
+- 実行する内容は以上のようなものでOK
+
+#### キー入力から関数の実行まで
+- hotkeys.js使う
+- 単に数字でコピーするサンプル番号を指定する
+
+
+#### UI
+- 理想は vimium と同じように、f でショートカットキーを表示すること
+- とりあえずは、こどふぉみたいに邪魔にならないような実行結果の表示をすれば良さそう
+
