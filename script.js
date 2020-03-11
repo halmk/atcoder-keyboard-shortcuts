@@ -57,7 +57,7 @@
     });
 
     hotkeys('ctrl+v', function (event, handler) {
-        switch( (handler.key) {
+        switch (handler.key) {
             case 'ctrl+v':
                 pasteSourceCode();
                 break;
