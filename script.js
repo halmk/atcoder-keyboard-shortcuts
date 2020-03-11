@@ -23,7 +23,7 @@
         }
         alert("Copied Sample" + index + ".");
         window.getSelection().removeAllRanges();
-    }
+    };
 
     var pasteSourceCode = function() {
         try {
@@ -33,7 +33,16 @@
         } catch (err) {
             console.log(err);
         }
-    }
+    };
+
+    var submitCode = function() {
+        try {
+            var btn = document.getElementById('submit');
+            btn.click();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     hotkeys('shift+1,shift+2,shift+3,shift+4,shift+5', function (event, handler){
         switch (handler.key) {
@@ -56,10 +65,13 @@
         }
     });
 
-    hotkeys('ctrl+v', function (event, handler) {
+    hotkeys('shift+a, cmd+shift+s', function (event, handler) {
         switch (handler.key) {
-            case 'ctrl+v':
+            case 'shift+a':
                 pasteSourceCode();
+                break;
+            case 'cmd+shift+s':
+                submitCode();
                 break;
             default: alert(event);
         }
