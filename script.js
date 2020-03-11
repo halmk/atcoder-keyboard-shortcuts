@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         atcoder-keyboard-shortcuts
-// @namespace    http://tampermonkey.net/
+// @namespace    https://halmk.github.io/
 // @version      0.1
 // @description  atcoder keyboard shortcuts
 // @author       springroll
 // @match        https://atcoder.jp/contests/*/tasks/*
+// @grant         none
 // @require       https://unpkg.com/hotkeys-js/dist/hotkeys.min.js
 // ==/UserScript==
 
