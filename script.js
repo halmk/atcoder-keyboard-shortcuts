@@ -24,6 +24,17 @@
         alert("Copied Sample" + index + ".");
         window.getSelection().removeAllRanges();
     }
+
+    var pasteSourceCode = function() {
+        try {
+            var pasteArea = document.getElementsByTagName('textarea')[0];
+            pasteArea.focus();
+            document.execCommand('paste');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     hotkeys('shift+1,shift+2,shift+3,shift+4,shift+5', function (event, handler){
         switch (handler.key) {
             case 'shift+1':
@@ -45,4 +56,12 @@
         }
     });
 
-})();
+    hotkeys('ctrl+v', function (event, handler) {
+        switch( (handler.key) {
+            case 'ctrl+v':
+                pasteSourceCode();
+                break;
+            default: alert(event);
+        }
+    });
+})
