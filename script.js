@@ -64,4 +64,4 @@
             default: alert(event);
         }
     });
-})
+})();
